@@ -1,0 +1,85 @@
+<template>
+  <nav class="navbar">
+    <div class="logo">
+      <!-- Logo usando link direto -->
+      <img src="https://images.unsplash.com/photo-1581090700227-5b9d21c81829?auto=format&fit=crop&w=50&q=80" alt="MaréAlta" />
+    </div>
+    <ul class="nav-links">
+      <li :class="{ active: activeTab === 'quem-somos' }" @click="changeTab('quem-somos')">Quem Somos</li>
+      <li :class="{ active: activeTab === 'politica' }" @click="changeTab('politica')">Nossa Política</li>
+      <li :class="{ active: activeTab === 'dilema' }" @click="changeTab('dilema')">Nosso Dilema</li>
+      <li :class="{ active: activeTab === 'onde-embarcamos' }" @click="changeTab('onde-embarcamos')">Onde Embarcamos</li>
+      <li :class="{ active: activeTab === 'trabalhe-conosco' }" @click="changeTab('trabalhe-conosco')">Trabalhe Conosco</li>
+    </ul>
+    <!-- Botão de destaque -->
+    <button class="cta" @click="changeTab('trabalhe-conosco')">Explore nossas vagas</button>
+  </nav>
+</template>
+
+<script>
+export default {
+  name: 'Navbar',
+  props: {
+    activeTab: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    changeTab(tab) {
+      this.$emit('change-tab', tab) // envia para o App.vue
+    }
+  }
+}
+</script>
+
+<style scoped>
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(to right, #00c6ff, #0072ff); /* azul mar */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.nav-links li:hover,
+.nav-links li.active {
+  text-decoration: underline;
+}
+
+.cta {
+  background-color: #ffdd57;
+  color: #0072ff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.cta:hover {
+  background-color: #ffd700;
+}
+</style>
