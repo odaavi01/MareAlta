@@ -1,7 +1,6 @@
 <template>
   <nav class="navbar">
-    <div class="logo">
-      <!-- Logo direto da pasta public -->
+    <div class="logo-container">
       <img src="/mare-alta-logo.png" alt="MaréAlta" />
     </div>
     <ul class="nav-links">
@@ -37,29 +36,50 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 0 40px;
   background: linear-gradient(to right, #00c6ff, #0072ff);
-  color: white;
   font-family: 'Poppins', sans-serif;
+  color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 100px;        /* altura fixa da navbar */
+  overflow: hidden;     /* impede que a logo saia da barra */
 }
 
-.logo img {
-  height: 80px; /* aumentei para deixar a logo mais visível */
+.logo-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 200%;           /* ocupa 85% da altura da navbar */
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* Flutuação suave, limitada para não sair da barra */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .nav-links {
   display: flex;
   list-style: none;
   gap: 30px;
+  align-items: center;
 }
 
 .nav-links li {
   cursor: pointer;
-  transition: 0.3s;
   font-weight: 500;
+  transition: 0.3s;
 }
 
 .nav-links li:hover,
@@ -80,5 +100,31 @@ export default {
 
 .cta:hover {
   background-color: #ffd700;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .logo-container img {
+    height: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  .logo-container img {
+    height: 60%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
 }
 </style>
