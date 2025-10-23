@@ -8,27 +8,35 @@
 
       <div class="cards">
         <div class="card">
-          <img src="https://img.icons8.com/ios-filled/100/0c4a6e/compass.png" alt="Exploração" />
+          <Compass class="icon" />
           <h2>Exploração</h2>
-          <p>Ampliar rotas e experiências únicas pelo mundo, sem comprometer o conforto dos passageiros.</p>
+          <p>
+            Ampliar rotas e experiências únicas pelo mundo, sem comprometer o conforto dos passageiros.
+          </p>
         </div>
 
         <div class="card">
-          <img src="https://img.icons8.com/ios-filled/100/0c4a6e/ship.png" alt="Conforto" />
+          <Armchair class="icon" />
           <h2>Conforto</h2>
-          <p>Garantir viagens agradáveis, com acomodações modernas, serviços personalizados e entretenimento a bordo.</p>
+          <p>
+            Garantir viagens agradáveis, com acomodações modernas, serviços personalizados e entretenimento a bordo.
+          </p>
         </div>
 
         <div class="card">
-          <img src="https://img.icons8.com/ios-filled/100/0c4a6e/water.png" alt="Sustentabilidade" />
+          <Leaf class="icon" />
           <h2>Sustentabilidade</h2>
-          <p>Operar de forma eco-friendly, preservando o meio ambiente e respeitando os oceanos que exploramos.</p>
+          <p>
+            Operar de forma eco-friendly, preservando o meio ambiente e respeitando os oceanos que exploramos.
+          </p>
         </div>
 
         <div class="card">
-          <img src="https://img.icons8.com/ios-filled/100/0c4a6e/handshake.png" alt="Segurança" />
+          <ShieldCheck class="icon" />
           <h2>Segurança</h2>
-          <p>Manter protocolos de segurança rigorosos para passageiros e tripulação em todas as viagens.</p>
+          <p>
+            Manter protocolos de segurança rigorosos para passageiros e tripulação em todas as viagens.
+          </p>
         </div>
       </div>
     </div>
@@ -36,17 +44,25 @@
 </template>
 
 <script>
+import { Compass, Leaf, ShieldCheck, Armchair } from "lucide-vue-next";
+
 export default {
   name: "Dilemma",
+  components: {
+    Compass,
+    Leaf,
+    ShieldCheck,
+    Armchair,
+  },
 };
 </script>
 
 <style scoped>
 .dilemma {
-  background: linear-gradient(to bottom, #e0f7ff, #d0f0ff);
+  background: linear-gradient(to bottom, #d0f0fd, #ffffff);
   padding: 60px 20px;
   font-family: 'Poppins', sans-serif;
-  color: #1a202c;
+  color: #0c4a6e;
 }
 
 .container {
@@ -56,14 +72,13 @@ export default {
 
 h1 {
   font-size: 2.5rem;
-  color: #0c4a6e;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .intro {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 50px;
 }
 
@@ -78,30 +93,31 @@ h1 {
   background: #ffffffcc;
   padding: 25px;
   border-radius: 15px;
-  width: 240px;
+  flex: 1 1 250px;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-.card img {
+.icon {
   width: 60px;
+  height: 60px;
+  color: #0c4a6e;
   margin-bottom: 15px;
 }
 
 .card h2 {
-  color: #0c4a6e;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
 }
 
 .card p {
   font-size: 0.95rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 </style>
