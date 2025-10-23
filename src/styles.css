@@ -11,13 +11,29 @@ h1, h2, h3 {
   font-family: 'Poppins', Arial, sans-serif;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #0288d1;
-  padding: 10px 20px;
+  padding: 10px 20px; /* Altura da barra normal */
   color: white;
+  position: relative; /* Para a logo grande */
+}
+
+.navbar .logo {
+  position: relative;
+  height: 50px; /* altura da barra */
+  overflow: visible; /* permite que a logo ultrapasse a barra */
+}
+
+.navbar .logo img {
+  height: 100px; /* logo grande */
+  width: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* centraliza verticalmente em relação à barra */
 }
 
 .navbar a {
@@ -29,6 +45,7 @@ h1, h2, h3 {
 
 .navbar a:hover { text-decoration: underline; }
 
+/* Hero Section */
 .hero {
   display: flex;
   flex-direction: column;
@@ -69,8 +86,14 @@ h1, h2, h3 {
 
 .hero button:hover { background-color: #2bbbad; }
 
-.content { max-width: 1000px; margin: auto; padding: 20px; }
+/* Conteúdo principal */
+.content { 
+  max-width: 1000px; 
+  margin: auto; 
+  padding: 20px; 
+}
 
+/* Job Cards */
 .jobs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -106,7 +129,27 @@ button.apply {
 
 button.apply:hover { background-color: #0277bd; }
 
+/* Responsividade */
+@media (max-width: 1024px) {
+  .navbar .logo img {
+    height: 80px; /* reduz a logo em telas menores */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .logo img {
+    height: 70px; /* reduz mais a logo no mobile */
+    position: relative;
+    transform: none; /* remove centralização para layout vertical */
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 600px) {
-  .navbar { flex-direction: column; }
   .jobs { grid-template-columns: 1fr; }
 }

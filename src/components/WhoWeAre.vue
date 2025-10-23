@@ -69,6 +69,14 @@ h1 {
   margin-bottom: 40px;
 }
 
+/* Remove borda preta transparente da palavra MaréAlta Cruises */
+.intro strong {
+  font-weight: 700 !important;
+  color: #0288d1 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important; /* remove contorno preto no Chrome/Safari */
+}
+
 .content {
   display: flex;
   flex-wrap: wrap;
