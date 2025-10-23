@@ -69,13 +69,7 @@ export default {
           requirements: "Formação técnica ou superior em TI. Experiência com suporte técnico.",
           salary: "R$ 4.000,00"
         },
-        {
-          title: "Animador de Cruzeiro",
-          shortDescription: "Traga alegria e energia aos nossos passageiros!",
-          description: "Organizar atividades recreativas e shows durante o cruzeiro.",
-          requirements: "Carisma, criatividade e habilidades de comunicação.",
-          salary: "R$ 3.000,00"
-        },
+
         {
           title: "Chef de Cozinha",
           shortDescription: "Comande a cozinha do navio e surpreenda nossos hóspedes.",
